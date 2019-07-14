@@ -1,5 +1,6 @@
 import React from "react";
 import Post from "./Post/Post"
+import styles from './Form.module.css'
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -10,8 +11,8 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div>  
-        <h3>Coments</h3>
+      <div className={styles.formBlock}>  
+        <h3>Post</h3>
        
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="new-form">
