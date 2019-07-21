@@ -1,36 +1,40 @@
 import React from 'react';
 import classes from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
-
-const DialogsItem = (props) => {
-    let path = '/dialogs/' + props.id;
-    return <div className={classes.items + '' + classes.active}>
-        <NavLink to={path}  activeClassName={classes.active}> {props.name}</NavLink>
-    </div>
-}
-
-const Message = (props) => {
-    return <div className={classes.message}>{props.message}</div>
-}
-
+import DialogItem from './DialogItem/DialogItem'
+import Message from './Message/Message'
 const Dialogs = (props) => {
+
+    let dialogs = [
+        {id: 1, name: 'Dima'},
+        {id: 2, name: 'Andrey'},
+        {id: 3, name: 'Pasha'},
+        {id: 4, name: 'Sveta'},
+        {id: 5, name: 'Kostya'},
+        {id: 6, name: 'Masha'},
+    ]
+
+
+    let messages = [
+        {id: 1, text: 'hi'},
+        {id: 2, text: 'man'},
+        {id: 3, text: 'i really whant to say'},
+        {id: 4, text: 'she wants to do it'},
+        {id: 5, text: 'No? Why?'},
+        {id: 6, text: 'Honey. Wheres  my supper suit?'},
+    ]
+
+let dialogsElements = dialogs.map (d =>  <DialogItem name={d.name} id={d.id}/>);
+
+    let messagesElement = messages.map(m => <Message message={m.text}/>);
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
-                <DialogsItem name='Dima' id='1'/>
-                <DialogsItem name='Andrey' id='2'/>
-                <DialogsItem name='Pasha' id='3'/>
-                <DialogsItem name='Sveta' id='4'/>
-                <DialogsItem name='Kostya' id='5'/>
-                <DialogsItem name='Masha' id='6'/>
+                {dialogsElements}
             </div>
 
             <div className={classes.messages}>
-                <Message message='hi'/>
-                <Message message='What'/>
-                <Message message='Noy,man'/>
-                <Message message='Damm'/>
-                <Message message='Margin'/>
+                {messagesElement}
             </div>
         </div>
     )
