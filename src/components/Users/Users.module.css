@@ -7,5 +7,22 @@
 
 .selectedPage {
   color: rgb(208, 255, 0);
-  font-size: large;
+  font-size: xx-large;
+}
+
+
+
+.pagesList{
+  margin-left: 294px;
+  position: fixed;
+  left: 1; bottom: 0;
+  padding: 10px;
+  font-size: x-large;
+}
+
+.buttonsArea button{
+  
+  
+  margin-left: 10px;
+  margin-right: 10px;
 }

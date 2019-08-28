@@ -1,6 +1,4 @@
-.style{
 
-}
 
 .style img{
     width: 990px ;
@@ -10,6 +8,15 @@
 
 .descriptionBlock{
 padding: 13px;
+display: flex;
+justify-content:space-around;
+flex-grow: 1;
+}
+
+ .profileInfo{
+    margin-left: 10px;
+    flex-grow: 6;
+
 }
 
 
