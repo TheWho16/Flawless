@@ -1,0 +1,35 @@
+.header {
+    grid-area: h;
+    background: rgb(84, 38, 190);
+    background: -moz-linear-gradient(45deg, rgba(45, 72, 224, 0.521) 0%, rgb(100, 8, 221) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgb(14, 26, 202)), color-stop(100%, rgb(228, 14, 121)));
+    background: -webkit-linear-gradient(45deg, rgb(45, 48, 224) 0%, rgb(168, 40, 125) 100%);
+    background: -o-linear-gradient(45deg, rgb(45, 57, 224) 0%, rgb(40, 95, 168) 100%);
+    background: -ms-linear-gradient(45deg, rgb(5, 71, 170) 0%, rgb(40, 168, 89) 100%);
+    background: linear-gradient(45deg, rgb(170, 224, 45) 0%, rgb(11, 201, 176) 100%);
+}
+
+.header img {
+    width: 150px;
+}
+
+.loginBlock{
+float: right;
+margin-right: 15px;
+margin-top: 15px;
+background: rgb(84, 38, 190);
+background: -moz-linear-gradient(45deg, rgba(45, 72, 224, 0.521) 0%, rgb(100, 8, 221) 100%);
+background: -webkit-gradient(left bottom, right top, color-stop(0%, rgb(14, 26, 202)), color-stop(100%, rgb(228, 14, 121)));
+background: -webkit-linear-gradient(45deg, rgb(45, 48, 224) 0%, rgb(168, 40, 125) 100%);
+background: -o-linear-gradient(45deg, rgb(45, 57, 224) 0%, rgb(40, 95, 168) 100%);
+background: -ms-linear-gradient(45deg, rgb(5, 71, 170) 0%, rgb(79, 202, 140) 100%);
+background: linear-gradient(45deg, rgb(45, 224, 75) 0%, rgb(186, 233, 16) 100%);
+box-shadow: 0 0 0 3px rgb(186, 233, 16), 
+10px 0 0 6px rgb(11, 201, 176) ,
+10px 0 0 1px rgb(9, 255, 0);
+}
+.loginBlock a{
+color: rgb(168, 40, 125);
+text-decoration: none;
+font-weight: 900;
+}

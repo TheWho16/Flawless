@@ -8,7 +8,7 @@ const BlackModeConteiner = () => {
    
     let valueTrue =(stan)=>{
         if (stan === true) {
-            debugger;
+             
            return <BlackMode/>
         }else{
             return(

@@ -10,7 +10,7 @@ class UsersClass extends React.Component {
         axios.get(
             `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=5`)
             .then(response => {
-                debugger;
+                 
 
                 this.props.setUsers(response.data.items);
             });
@@ -24,7 +24,7 @@ class UsersClass extends React.Component {
         axios.get(
             `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=5`)
             .then(response => {
-                debugger;
+                 
 
                 this.props.setUsers(response.data.items);
             });

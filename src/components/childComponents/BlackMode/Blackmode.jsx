@@ -1,5 +1,7 @@
 import React from 'react';
-import style from './Black.module.css'
+import  './Bl.css'
+import style from  './Black.module.css'
+import Sahrick from  './sharik.jpg'
 
 
 
@@ -7,12 +9,32 @@ import style from './Black.module.css'
 const BlackMode = () => {
 
 
-        
-        return(
-            <div><img className={style.Black} src={'https://gdb.rferl.org/896C5DE4-4A05-4ABF-8A65-98757BCE519C_w1080_h608.jpg' } alt="black"/></div>
-        )
-    }
-  
+
+    return (
+        <div>
+
+            <div id="note">
+                
+                <div className={style.imgBox1}> 
+                <img src={Sahrick} />
+                </div>
+                <div className={style.imgBox2}> 
+                <img src={Sahrick} />
+                </div>
+                <div className={style.imgBox3}> 
+                <img src={Sahrick} />
+                </div>
+                <div className={style.imgBox4}> 
+                <img src={Sahrick} />
+                </div>
+                В честь окрытия магазина Акция!
+                 <a  className="close" href="#">[закрыть]</a>
+            </div>
+            <a href="#note">Вызвать всплывающее окно</a>
+        </div>
+    )
+}
+
 
 
 export default BlackMode; 

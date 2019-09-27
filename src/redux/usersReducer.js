@@ -1,5 +1,4 @@
-
-
+import { usersAPI } from './bll/userAction';
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -76,10 +75,25 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const followAC = (userId) => ({ type: FOLLOW, userId })
-export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId })
-export const setUsersAC = (users) => ({ type: SET_USERS, users })
-export const setcurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage: currentPage })
+export const follow = (userId) => ({ type: FOLLOW, userId })
+export const unfollow = (userId) => ({ type: UNFOLLOW, userId })
+export const setUsers = (users) => ({ type: SET_USERS, users })
+export const setcurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage: currentPage })
 export const togleIsFetchingAC = (isFetching) => ({ type: TOGLE_IS_FETCHING, isFetching: isFetching })
+
+export const getUserThunk = (currentPage, pageNumber) => {
+
+    return (dispatch) => {
+        dispatch(togleIsFetchingAC(true));
+
+        usersAPI.getUserInfo(currentPage, pageNumber)
+            .then(data => {
+                dispatch(togleIsFetchingAC(false));
+                dispatch(setcurrentPage(data.items));
+            });
+
+
+    }
+}
 
 export default usersReducer;

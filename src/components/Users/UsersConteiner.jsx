@@ -2,37 +2,28 @@ import React from 'react';
 import Users from './Users';
 
 import { connect } from 'react-redux';
-import * as axios from 'axios'
-import { followAC, unfollowAC, setUsersAC, setcurrentPageAC, togleIsFetchingAC } from '../../redux/usersReducer';
+import { follow, unfollow, setUsers, setcurrentPage, getUserThunk } from '../../redux/usersReducer';
 import Preloder from '../childComponents/Preloader/Preloder';
+import { usersAPI } from '../../redux/bll/userAction';
 
 class UsersClass extends React.Component {
 
     componentDidMount() {
-        this.props.togleIsFetching(true);
 
-        axios.get(
-            `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=5`)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.togleIsFetching(false);
-
-            });
+        this.props.getUserThunk(this.props.currentPage, this.props.pageNumber)
     }
 
 
 
 
     onPageChanged = (pageNumber) => {
+        debugger
         this.props.setcurrentPage(pageNumber);
-        this.props.togleIsFetching(true);
 
-        axios.get(
-            `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=10`)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.togleIsFetching(false);
-                debugger;
+        usersAPI.getUserInfo(pageNumber)
+            .then(data => {
+                this.props.setUsers(data.items);
+
 
             });
     }
@@ -41,7 +32,7 @@ class UsersClass extends React.Component {
     render() {
 
         return <>
-            {this.props.isFetching ? <Preloder/> : null}
+            {this.props.isFetching ? <Preloder /> : null}
             <Users
                 users={this.props.users}
                 totalUsersCount={this.props.totalUsersCount}
@@ -67,28 +58,9 @@ let mapStateToProps = (state) => {
 
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId));
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
-        },
-        setcurrentPage: (pageNumber) => {
-            dispatch(setcurrentPageAC(pageNumber))
-        },
-        togleIsFetching: (isFetching) => {
-            dispatch(togleIsFetchingAC(isFetching))
-        },
-
-    }
-}
 
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersClass);
+
+export default connect(mapStateToProps, { follow, unfollow, setUsers, setcurrentPage, getUserThunk })(UsersClass);
